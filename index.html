@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm (Tailwind)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans p-6">
+
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Danh Sách Sản Phẩm</h1>
+
+        <!-- Controls Area -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+            <!-- Search -->
+            <input type="text" id="searchInput"
+                class="w-full md:w-1/3 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Tìm kiếm theo tên..." oninput="handleSearch(this.value)">
+
+            <!-- Sort Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="handleSort('price', 'asc')"
+                    class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm transition">Giá Thấp &uarr;</button>
+                <button onclick="handleSort('price', 'desc')"
+                    class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm transition">Giá Cao &darr;</button>
+                <button onclick="handleSort('title', 'asc')"
+                    class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm transition">Tên A-Z</button>
+                <button onclick="handleSort('title', 'desc')"
+                    class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm transition">Tên Z-A</button>
+            </div>
+
+            <!-- Page Size -->
+            <div class="flex items-center gap-2">
+                <label for="pageSize" class="text-gray-700">Hiển thị:</label>
+                <select id="pageSize" onchange="changePageSize(this.value)"
+                    class="p-2 border border-gray-300 rounded focus:outline-none">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200">
+                <thead>
+                    <tr class="bg-gray-800 text-white">
+                        <th class="p-3 text-left border border-gray-600">ID</th>
+                        <th class="p-3 text-left border border-gray-600">Hình ảnh</th>
+                        <th class="p-3 text-left border border-gray-600">Tên sản phẩm</th>
+                        <th class="p-3 text-left border border-gray-600">Giá</th>
+                        <th class="p-3 text-left border border-gray-600">Danh mục</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table-body">
+                    <!-- Data rendered via JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center mt-6 gap-4">
+            <button onclick="prevPage()"
+                class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 transition">Trước</button>
+            <span id="pageInfo" class="text-gray-700 font-semibold">Trang 1</span>
+            <button onclick="nextPage()"
+                class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 transition">Sau</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

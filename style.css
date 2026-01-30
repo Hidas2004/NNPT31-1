@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+}
+
+button {
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+/* Zebra Striping: 1 dòng đen, 1 dòng trắng (theo yêu cầu) */
+/* Lưu ý: Dòng đen chữ trắng, dòng trắng chữ đen */
+tbody tr:nth-child(odd) {
+    background-color: #000;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Image Styling */
+.product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* Hiển thị toàn bộ hình, không bị cắt */
+    background-color: #fff;
+    /* Thêm nền trắng nếu hình không vuông */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
